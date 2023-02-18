@@ -13,6 +13,4 @@ Phần mềm trợ giúp việc quản lý thu phí viết bằng công cụ Jav
 <center>
   <img src="https://github.com/lh560/QuanLyThuPhi/blob/main/img/demo/login.png" /> <br />
   <img src="https://github.com/lh560/QuanLyThuPhi/blob/main/img/demo/delNhanKhau.png" /> <br />
-  <img src="https://github.com/tranngocphien/quan-ly-thu-tien/blob/master/img/demo/delNhanKhau.png" /> <br />
-  <img src="https://github.com/tranngocphien/quan-ly-thu-tien/blob/master/img/demo/addKhoanThu.png" /> <br />
 </center>
