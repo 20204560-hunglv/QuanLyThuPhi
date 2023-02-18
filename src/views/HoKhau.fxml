@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="850.0" stylesheets="@../source/Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HoKhauController">
+   <children>
+      <TableView fx:id="tvHoKhau" layoutX="11.0" layoutY="71.0" prefHeight="456.0" prefWidth="817.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
+        <columns>
+          <TableColumn fx:id="colMaHoKhau" prefWidth="119.99999713897705" text="Mã hộ" />
+            <TableColumn fx:id="colMaChuHo" prefWidth="248.80003356933594" text="Tên chủ hộ" />
+            <TableColumn fx:id="colSoThanhVien" prefWidth="171.199951171875" resizable="false" text="Số thành viên" />
+            <TableColumn fx:id="colDiaChi" prefWidth="285.5999755859375" text="Địa chỉ" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfSearch" layoutX="24.0" layoutY="15.0" prefHeight="38.0" prefWidth="320.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="470.0" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="624.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchHoKhau" prefHeight="46.0" prefWidth="190.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" textFill="#1996f5" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="620.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <ComboBox fx:id="cbChooseSearch" layoutX="498.0" layoutY="14.0" prefHeight="40.0" prefWidth="119.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="54.0" layoutY="546.0" mnemonicParsing="false" onAction="#addHoKhau" prefHeight="40.0" prefWidth="280.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm hộ" textFill="#1996f5" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="30.0" />
+      <Button layoutX="277.0" layoutY="546.0" mnemonicParsing="false" onAction="#updateHoKhau" prefHeight="40.0" prefWidth="280.0" styleClass="button1" stylesheets="@../source/Main.css" text="Sửa hộ" textFill="#1996f5" AnchorPane.bottomAnchor="10.0" />
+      <Button layoutX="516.0" layoutY="546.0" mnemonicParsing="false" onAction="#delHoKhau" prefHeight="40.0" prefWidth="280.0" styleClass="button1" stylesheets="@../source/Main.css" text="Xóa hộ" textFill="#1996f5" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="30.0" />
+   </children>
+</AnchorPane>
