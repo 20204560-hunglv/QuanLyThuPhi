@@ -50,7 +50,7 @@
             <Font size="65.0" />
          </font>
       </Label>
-      <Label layoutX="181.0" layoutY="439.0" text="Chương trình quản lý thu phí........." />
+      <Label layoutX="181.0" layoutY="439.0" text="Chương trình quản lý thu phí" />
       <ImageView fitHeight="230.0" fitWidth="245.0" layoutX="200.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../source/logo.png" />
