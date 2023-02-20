@@ -8,18 +8,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" stylesheets="@../source/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<AnchorPane prefHeight="800.0" prefWidth="1600.0" stylesheets="@../source/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
    <children>
-      <HBox layoutX="1.0" prefHeight="600.0" prefWidth="1000.0">
+      <HBox layoutX="0.0" prefHeight="800.0" prefWidth="1600.0">
          <children>
-            <VBox prefHeight="600.0" prefWidth="150.0" spacing="30.0" styleClass="pane" stylesheets="@../source/Home.css">
+            <VBox prefHeight="800.0" prefWidth="200.0" spacing="50.0" styleClass="pane" stylesheets="@../source/Home.css">
                <children>
-                  <Button mnemonicParsing="false" onAction="#setTrangChu" prefHeight="60.0" prefWidth="179.0" style="-fx-background-color: #1030b1;" styleClass="button3" stylesheets="@../source/Home.css" text="Trang chủ" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#setTrangChu" prefHeight="60.0" prefWidth="192.0" style="-fx-background-color: #1030b1;" styleClass="button3" stylesheets="@../source/Home.css" text="Trang chủ" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnNhanKhau" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" onAction="#setNhanKhau" prefHeight="50.0" prefWidth="160.0" styleClass="button3" stylesheets="@../source/Home.css" text="Nhân khẩu" textFill="WHITE">
+                  <Button fx:id="btnNhanKhau" layoutX="20.0" layoutY="185.0" mnemonicParsing="false" onAction="#setNhanKhau" prefHeight="50.0" prefWidth="182.0" styleClass="button3" stylesheets="@../source/Home.css" text="Nhân khẩu" textFill="WHITE">
                      <font>
                         <Font name="Arial Bold" size="20.0" />
                      </font>
@@ -27,7 +27,7 @@
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button fx:id="btnHoKhau" mnemonicParsing="false" onAction="#setHoKhau" prefHeight="51.0" prefWidth="169.0" styleClass="button3" stylesheets="@../source/Home.css" text="Hộ khẩu" textFill="WHITE">
+                  <Button fx:id="btnHoKhau" mnemonicParsing="false" onAction="#setHoKhau" prefHeight="51.0" prefWidth="179.0" styleClass="button3" stylesheets="@../source/Home.css" text="Hộ khẩu" textFill="WHITE">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>
@@ -35,7 +35,7 @@
                         <Font name="Arial Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnKhoanPhi" mnemonicParsing="false" onAction="#setKhoanPhi" prefHeight="50.0" prefWidth="157.0" styleClass="button3" stylesheets="@../source/Home.css" text="Khoản phí" textFill="WHITE" wrapText="true">
+                  <Button fx:id="btnKhoanPhi" mnemonicParsing="false" onAction="#setKhoanPhi" prefHeight="50.0" prefWidth="181.0" styleClass="button3" stylesheets="@../source/Home.css" text="Khoản thu" textFill="WHITE" wrapText="true">
                      <VBox.margin>
                         <Insets bottom="10.0" left="10.0" top="10.0" />
                      </VBox.margin>
@@ -61,7 +61,7 @@
                   </Button>
                </children>
             </VBox>
-            <BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="850.0" />
+            <BorderPane fx:id="borderPane" prefHeight="800.0" prefWidth="1400.0" />
          </children>
       </HBox>
    </children>

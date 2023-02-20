@@ -1,14 +1,8 @@
-/*.root {
-    -fx-background-color: linear-gradient(#c9d6ff, #e2e2e2);
-}*/
-
 .pane {
-    /*-fx-background-color: #f2f2f2;*/
     -fx-background-color: linear-gradient(#1cb5e0, #000046);
     -fx-border-radius: 5px;
-    -fx-padding: 20px;
+    -fx-padding: 10px;
 }
-
 .button3 {
     -fx-background-color:  #1996F5;
     -fx-background-radius: 5px;
@@ -17,10 +11,7 @@
     -fx-border-width: 2px;
     -fx-text-fill: white;
     -fx-font: 14px "Arial Bold";
-    -fx-pref-width: 300px;
-    -fx-pref-height: 50px;
     -fx-alignment: center;
-    -fx-padding: 10px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 1);
 }
 

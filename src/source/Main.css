@@ -1,17 +1,15 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 
 .pane {
-    -fx-background-color : #e8e3f3;
-    -fx-pref-width: 850px;
-    -fx-pref-height: 600px;
-
+    -fx-background-color: linear-gradient(#ece9e6,#ffffff);
+    width: 1400px;
 }
 
 
 .button1
 {
     -fx-background-color : #e8e3f3;
-    -fx-background-radius :  15 0 0 15;
+    -fx-background-radius :  15 15 15 15;
 }
 .button1:hover
 {

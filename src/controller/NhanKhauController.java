@@ -100,7 +100,7 @@ public class NhanKhauController implements Initializable {
 		tvNhanKhau.setItems(listValueTableView);
 
 		// thiet lap gia tri cho combobox
-		ObservableList<String> listComboBox = FXCollections.observableArrayList("Tên", "Tuổi", "id");
+		ObservableList<String> listComboBox = FXCollections.observableArrayList("Tên", "Tuổi", "Mã nhân khẩu"); //id = mã nhân khẩu
 		cbChooseSearch.setValue("Tên");
 		cbChooseSearch.setItems(listComboBox);
 	}

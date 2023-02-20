@@ -6,20 +6,27 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="850.0" stylesheets="@../source/Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NopTienController">
+<AnchorPane prefHeight="800.0" prefWidth="1400.0" stylesheets="@../source/Main.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.NopTienController">
    <children>
       <TableView fx:id="tvNopTien" layoutX="10.0" layoutY="64.0" prefHeight="503.0" prefWidth="471.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
         <columns>
-          <TableColumn fx:id="tbcTenNguoi" prefWidth="235.99996662139893" text="Tên người nộp" />
-          <TableColumn fx:id="tbcTenKhoanThu" prefWidth="311.19996643066406" text="Tên khoản thu" />
-          <TableColumn fx:id="tbcNgayThu" prefWidth="268.0001220703125" text="Ngày thu" />
+          <TableColumn fx:id="tbcTenNguoi" prefWidth="328.8000078201294" text="Tên người nộp" />
+          <TableColumn fx:id="tbcTenKhoanThu" prefWidth="567.1999816894531" text="Tên khoản thu" />
+          <TableColumn fx:id="tbcNgayThu" prefWidth="476.79998779296875" text="Ngày thu" />
         </columns>
       </TableView>
-      <TextField fx:id="tfSearch" layoutX="10.0" layoutY="14.0" prefHeight="40.0" prefWidth="447.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="470.0" AnchorPane.topAnchor="10.0" />
-      <Button layoutX="659.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchNopTien" prefHeight="40.0" prefWidth="170.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="620.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
-      <ComboBox fx:id="cbChooseSearch" layoutX="478.0" layoutY="14.0" prefHeight="40.0" prefWidth="170.0" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="10.0" />
-      <Button layoutX="113.0" layoutY="554.0" mnemonicParsing="false" onAction="#addNopTien" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm nộp tiền" textFill="#2e088d" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="110.0" />
-      <Button layoutX="488.0" layoutY="556.0" mnemonicParsing="false" onAction="#delNopTien" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Xóa nộp tiền" textFill="#2e088d" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="110.0" />
+      <TextField fx:id="tfSearch" layoutX="10.0" layoutY="14.0" prefHeight="40.0" prefWidth="447.0" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="659.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchNopTien" prefHeight="40.0" prefWidth="170.0" styleClass="button3" stylesheets="@../source/Main.css" text="Tìm kiếm" textFill="#1996f5" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="1190.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <ComboBox fx:id="cbChooseSearch" layoutX="478.0" layoutY="14.0" prefHeight="40.0" prefWidth="170.0" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="940.0" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="10.0" />
+      <Button layoutX="113.0" layoutY="554.0" mnemonicParsing="false" onAction="#addNopTien" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Thêm nộp tiền" textFill="#1996f5" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="1240.0" AnchorPane.topAnchor="740.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button layoutX="488.0" layoutY="556.0" mnemonicParsing="false" onAction="#delNopTien" prefHeight="40.0" prefWidth="200.0" styleClass="button1" stylesheets="@../source/Main.css" text="Xóa nộp tiền" textFill="#1996f5" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="1035.0" AnchorPane.topAnchor="740.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
    </children>
 </AnchorPane>

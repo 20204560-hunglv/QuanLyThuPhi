@@ -10,8 +10,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import models.HoKhauModel;
 import models.KhoanThuModel;
+import models.NhanKhauModel;
 import services.HoKhauService;
 import services.KhoanThuService;
+import services.NhanKhauService;
 
 public class MainController implements Initializable{
 	@FXML
@@ -19,10 +21,17 @@ public class MainController implements Initializable{
 
 	@FXML
 	private Label lbSoKhoanThu;
+        
+        @FXML
+        private Label lbSoNhanKhau;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
+                        List<NhanKhauModel> listNhanKhau = new NhanKhauService().getListNhanKhau();
+			long soNhanKhau = listNhanKhau.stream().count();
+			lbSoNhanKhau.setText(Long.toString(soNhanKhau));
+                        
 			List<HoKhauModel> listHoKhau = new HoKhauService().getListHoKhau();
 			long soHoKhau = listHoKhau.stream().count();
 			lbSoHoKhau.setText(Long.toString(soHoKhau));
