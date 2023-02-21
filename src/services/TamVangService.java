@@ -15,10 +15,10 @@ public class TamVangService {
     public boolean add(TamVangModel tamVangModel) throws ClassNotFoundException, SQLException {
 
         Connection connection = MysqlConnection.getMysqlConnection();
-        String query = "INSERT INTO tam_vang(id_tam_vang, idNhanKhau, tuNgay, denNgay, lydo)" + " values (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO tam_vang(idNhanKhau, maGiayTamVang, tuNgay, denNgay, lydo)" + " values (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-        preparedStatement.setInt(1, tamVangModel.getId_tam_vang());
-        preparedStatement.setInt(2, tamVangModel.getIdNhanKhau());
+        preparedStatement.setInt(1, tamVangModel.getIdNhanKhau());
+        preparedStatement.setString(2, tamVangModel.getMaGiayTamVang());
         preparedStatement.setDate(3, tamVangModel.getTuNgay());
         preparedStatement.setDate(4, tamVangModel.getDenNgay());
         preparedStatement.setString(5, tamVangModel.getLydo());
@@ -36,7 +36,7 @@ public class TamVangService {
         PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
         ResultSet rs = preparedStatement.executeQuery();
         while (rs.next()) {
-            TamVangModel tamVangModel = new TamVangModel(rs.getInt("id_tam_vang"), rs.getInt("idNhanKhau"), rs.getDate("tuNgay"),
+            TamVangModel tamVangModel = new TamVangModel(rs.getInt("id_tam_vang"), rs.getInt("idNhanKhau"),rs.getString("maGiayTamVang"), rs.getDate("tuNgay"),
                     rs.getDate("denNgay"), rs.getString("lydo"));
             list.add(tamVangModel);
         }

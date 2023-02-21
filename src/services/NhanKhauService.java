@@ -99,8 +99,7 @@ public class NhanKhauService {
 		PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
 		ResultSet rs = preparedStatement.executeQuery();
 		while (rs.next()) {
-			NhanKhauModel nhanKhauModel = new NhanKhauModel(rs.getInt("ID"), rs.getString("CMND"), rs.getString("Ten"),
-					rs.getString("tuoi"), rs.getString("SDT"), rs.getString("ghiChu"));
+			NhanKhauModel nhanKhauModel = new NhanKhauModel(rs.getInt("ID"), rs.getString("CMND"), rs.getString("Ten"), rs.getString("tuoi"), rs.getString("SDT"), rs.getString("gioiTinh"), rs.getString("noiSinh"), rs.getString("nguyenQuan"), rs.getString("danToc"), rs.getString("quocTich"), rs.getString("soHoChieu"), rs.getString("noiThuongTru"), rs.getString("diaChiHienTai"), rs.getString("tonGiao"), rs.getString("ghiChu"));
 			list.add(nhanKhauModel);
 		}
 		preparedStatement.close();
