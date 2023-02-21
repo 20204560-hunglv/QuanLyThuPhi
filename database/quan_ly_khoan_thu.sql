@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 21, 2023 lúc 03:51 PM
+-- Thời gian đã tạo: Th2 21, 2023 lúc 08:19 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -196,9 +196,15 @@ CREATE TABLE `tam_tru` (
   `noiTamTru` varchar(100) NOT NULL,
   `tuNgay` date NOT NULL,
   `denNgay` date NOT NULL,
-  `lyDo` varchar(100) NOT NULL,
-  `hoTen` varchar(45) NOT NULL
+  `lyDo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tam_tru`
+--
+
+INSERT INTO `tam_tru` (`id`, `idNhanKhau`, `maGiayTamTru`, `noiTamTru`, `tuNgay`, `denNgay`, `lyDo`) VALUES
+(2, 3, '#abc', 'HN', '2023-03-01', '2023-03-31', 'jhkdsu');
 
 -- --------------------------------------------------------
 
@@ -209,6 +215,7 @@ CREATE TABLE `tam_tru` (
 CREATE TABLE `tam_vang` (
   `id_tam_vang` int(11) NOT NULL,
   `idNhanKhau` int(11) NOT NULL,
+  `maGiayTamVang` varchar(100) NOT NULL,
   `tuNgay` date NOT NULL,
   `denNgay` date NOT NULL,
   `lydo` varchar(100) NOT NULL
@@ -218,10 +225,11 @@ CREATE TABLE `tam_vang` (
 -- Đang đổ dữ liệu cho bảng `tam_vang`
 --
 
-INSERT INTO `tam_vang` (`id_tam_vang`, `idNhanKhau`, `tuNgay`, `denNgay`, `lydo`) VALUES
-(1, 1, '2023-02-01', '2023-02-28', ''),
-(2, 1, '2023-02-01', '2023-02-28', '54656'),
-(3, 3, '2023-02-01', '2023-02-28', 'di vang');
+INSERT INTO `tam_vang` (`id_tam_vang`, `idNhanKhau`, `maGiayTamVang`, `tuNgay`, `denNgay`, `lydo`) VALUES
+(1, 3, 'abc', '2023-02-01', '2023-02-28', ''),
+(2, 3, '', '2023-02-22', '2023-02-28', 'di vang'),
+(3, 3, '', '2023-02-01', '2023-02-28', 'di vang'),
+(4, 6, 'bcd', '2023-03-01', '2023-03-31', '');
 
 -- --------------------------------------------------------
 
@@ -335,6 +343,18 @@ ALTER TABLE `khoan_thu`
 --
 ALTER TABLE `nhan_khau`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT cho bảng `tam_tru`
+--
+ALTER TABLE `tam_tru`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `tam_vang`
+--
+ALTER TABLE `tam_vang`
+  MODIFY `id_tam_vang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
