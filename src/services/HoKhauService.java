@@ -73,7 +73,7 @@ public class HoKhauService {
 		List<HoKhauModel> list = new ArrayList<>();
 
 		Connection connection = MysqlConnection.getMysqlConnection();
-		String query = "SELECT * FROM ho_khau";
+		String query = "SELECT ho_khau.MaHo,DiaChi,maKhuVuc, COUNT(IDThanhVien) as SoThanhVien from ho_khau,quan_he WHERE ho_khau.MaHo=quan_he.MaHo GROUP by ho_khau.MaHo";
 		PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
 		ResultSet rs = preparedStatement.executeQuery();
 		while (rs.next()) {

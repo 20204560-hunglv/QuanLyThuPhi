@@ -14,10 +14,11 @@
         <columns>
           <TableColumn fx:id="colMaNhanKhau" prefWidth="192.79995441436768" text="Mã nhân khẩu" />
           <TableColumn fx:id="colTen" prefWidth="270.40000915527344" text="Họ và tên" />
-            <TableColumn fx:id="colTuoi" prefWidth="123.20001220703125" text="Tuổi" />
+            <TableColumn fx:id="colTuoi" prefWidth="123.20001220703125" text="Ngày Sinh" />
             <TableColumn fx:id="colCMND" prefWidth="242.4000244140625" text="CMND" />
-            <TableColumn fx:id="colSDT" minWidth="0.0" prefWidth="238.4000244140625" text="SĐT" />
-            <TableColumn fx:id="colMaHo" prefWidth="302.39990234375" text="Mã hộ" />
+            <TableColumn fx:id="colSDT" minWidth="0.0" prefWidth="198.39990234375" text="SĐT" />
+            <TableColumn fx:id="colMaHo" minWidth="0.0" prefWidth="152.0" text="Mã hộ" />
+            <TableColumn fx:id="colGhiChu" prefWidth="195.0" text="Ghi chú" />
         </columns>
       </TableView>
       <TextField fx:id="tfSearch" layoutX="10.0" layoutY="8.0" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="10.0" />

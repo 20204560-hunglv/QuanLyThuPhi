@@ -16,13 +16,23 @@ public class NhanKhauService {
 	public boolean add(NhanKhauModel nhanKhauModel) throws ClassNotFoundException, SQLException {
 
 		Connection connection = MysqlConnection.getMysqlConnection();
-		String query = "INSERT INTO nhan_khau(ID, CMND, Ten, Tuoi, SDT)" + " values (?, ?, ?, ?, ?)";
+		String query = "INSERT INTO nhan_khau(ID, CMND, Ten, Tuoi, SDT,gioiTinh,noiSinh,nguyenQuan,danToc,quocTich,soHoChieu,noiThuongTru,diaChiHienTai,tonGiao,ghiChu)" + " values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 		preparedStatement.setInt(1, nhanKhauModel.getId());
 		preparedStatement.setString(2, nhanKhauModel.getCmnd());
 		preparedStatement.setString(3, nhanKhauModel.getTen());
-		preparedStatement.setInt(4, nhanKhauModel.getTuoi());
+		preparedStatement.setString(4, nhanKhauModel.getTuoi());
 		preparedStatement.setString(5, nhanKhauModel.getSdt());
+                preparedStatement.setString(6, nhanKhauModel.getGioiTinh());
+                preparedStatement.setString(7, nhanKhauModel.getNoiSinh());
+                preparedStatement.setString(8, nhanKhauModel.getNguyenQuan());
+                preparedStatement.setString(9, nhanKhauModel.getDanToc());
+                preparedStatement.setString(10, nhanKhauModel.getQuocTich());
+                preparedStatement.setString(11, nhanKhauModel.getSoHoChieu());
+                preparedStatement.setString(12, nhanKhauModel.getNoiThuongTru());
+                preparedStatement.setString(13, nhanKhauModel.getDiaChiHienTai());
+                preparedStatement.setString(14, nhanKhauModel.getTonGiao());
+                preparedStatement.setString(15, nhanKhauModel.getGhiChu());
 		preparedStatement.executeUpdate();
 		preparedStatement.close();
 		connection.close();
@@ -90,7 +100,7 @@ public class NhanKhauService {
 		ResultSet rs = preparedStatement.executeQuery();
 		while (rs.next()) {
 			NhanKhauModel nhanKhauModel = new NhanKhauModel(rs.getInt("ID"), rs.getString("CMND"), rs.getString("Ten"),
-					rs.getInt("Tuoi"), rs.getString("SDT"));
+					rs.getString("tuoi"), rs.getString("SDT"), rs.getString("ghiChu"));
 			list.add(nhanKhauModel);
 		}
 		preparedStatement.close();

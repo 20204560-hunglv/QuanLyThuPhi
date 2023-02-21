@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" styleClass="pane" stylesheets="@../../source/change.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.UpdateNhanKhau">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="pane" stylesheets="@../../source/change.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nhankhau.UpdateNhanKhau">
    <children>
-      <Pane layoutX="75.0" layoutY="137.0" prefHeight="295.0" prefWidth="450.0" styleClass="subpane" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0">
+      <Pane layoutX="75.0" layoutY="137.0" prefHeight="295.0" prefWidth="450.0" styleClass="subpane" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <children>
             <Label layoutX="11.0" layoutY="129.0" text="Tuổi" />
             <TextField fx:id="tfTuoi" layoutX="169.0" layoutY="123.0" prefHeight="39.0" prefWidth="267.0" />
@@ -23,8 +23,8 @@
             <TextField fx:id="tfMaNhanKhau" editable="false" layoutX="169.0" layoutY="8.0" prefHeight="39.0" prefWidth="267.0" style="-fx-background-color: #eaeaea;" />
          </children>
       </Pane>
-      <Button layoutX="261.0" layoutY="515.0" mnemonicParsing="false" onAction="#updateNhanKhau" text="Cập nhật" textFill="#1996f5" />
-      <Label layoutX="141.0" layoutY="52.0" text="Thay đổi thông tin nhân khẩu" textFill="WHITE">
+      <Button layoutX="261.0" layoutY="515.0" mnemonicParsing="false" onAction="#updateNhanKhau" prefHeight="35.0" prefWidth="100.0" text="Cập nhật" textFill="#1996f5" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" />
+      <Label layoutX="232.0" layoutY="14.0" text="Thay đổi thông tin nhân khẩu" textFill="WHITE" AnchorPane.leftAnchor="232.0" AnchorPane.rightAnchor="233.60000000000002">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>

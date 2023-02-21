@@ -39,7 +39,7 @@ public class UpdateNhanKhau {
 
 		maNhanKhau = nhanKhauModel.getId();
 		tfMaNhanKhau.setText(Integer.toString(maNhanKhau));
-		tfTuoi.setText(Integer.toString(nhanKhauModel.getTuoi()));
+		tfTuoi.setText(nhanKhauModel.getTuoi());
 		tfTenNhanKhau.setText(nhanKhauModel.getTen());
 		tfSoDienThoai.setText(nhanKhauModel.getSdt());
 		tfSoCMND.setText(nhanKhauModel.getCmnd());

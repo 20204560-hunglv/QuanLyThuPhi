@@ -161,7 +161,7 @@ public class ChooseNguoiNop implements Initializable {
 			int index = 0;
 			List<NhanKhauModel> listNhanKhau_tmp = new ArrayList<>();
 			for (NhanKhauModel nhanKhauModel : listNhanKhau) {
-				if (nhanKhauModel.getTuoi() == Integer.parseInt(keySearch)) {
+				if (nhanKhauModel.getTuoi() == keySearch) {
 					listNhanKhau_tmp.add(nhanKhauModel);
 					index++;
 				}

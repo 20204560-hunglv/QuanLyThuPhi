@@ -103,13 +103,13 @@ public class AddHoKhau {
 
 		// kiem tra tuoi nhap vao
 		// tuoi nhap vao nhieu nhat la 1 so co 3 chu so
-		pattern = Pattern.compile("\\d{1,3}");
-		if (!pattern.matcher(tfTuoi.getText()).matches()) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào tuổi hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
-			return;
-		}
+//		pattern = Pattern.compile("\\d{1,3}");
+//		if (!pattern.matcher(tfTuoi.getText()).matches()) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào tuổi hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
 
 		// kiem tra cmnd nhap vao
 		// cmnd nhap vao phai la mot day so tu 1 toi 20 so
@@ -136,7 +136,7 @@ public class AddHoKhau {
 		String diaChi = tfDiaChi.getText();
 		int maChuHo = Integer.parseInt(tfMaChuHo.getText());
 		String tenChuHo = tfTenChuHo.getText();
-		int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
+		String tuoiChuHo = tfTuoi.getText();//int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
 		String cmndChuHo = tfCMND.getText();
 		String sdtChuHo = tfSoDienThoai.getText();
 		

@@ -35,6 +35,26 @@ public class AddNhanKhau {
 	private TextField tfMaHoKhau;
 	@FXML
 	private TextField tfQuanHe;
+        @FXML
+	private TextField tfGioiTinh;
+        @FXML
+	private TextField tfSoHoChieu;
+        @FXML
+	private TextField tfDanToc;
+        @FXML
+        private TextField tfQuocTich;
+        @FXML
+	private TextField tfNoiThuongTru;
+        @FXML
+	private TextField tfNoiSinh;
+        @FXML
+	private TextField tfNguyenQuan;
+        @FXML
+	private TextField tfTonGiao;
+        @FXML
+	private TextField tfDiaChiHienTai;
+        @FXML
+	private TextField tfGhiChu;
 
 	public void addNhanKhau(ActionEvent event) throws ClassNotFoundException, SQLException {
 		// khai bao mot mau de so sanh
@@ -71,13 +91,13 @@ public class AddNhanKhau {
 
 		// kiem tra tuoi nhap vao
 		// tuoi nhap vao nhieu nhat la 1 so co 3 chu so
-		pattern = Pattern.compile("\\d{1,3}");
-		if (!pattern.matcher(tfTuoi.getText()).matches()) {
-			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào tuổi hợp lệ!", ButtonType.OK);
-			alert.setHeaderText(null);
-			alert.showAndWait();
-			return;
-		}
+//		pattern = Pattern.compile("\\d{1,3}");
+//		if (!pattern.matcher(tfTuoi.getText()).matches()) {
+//			Alert alert = new Alert(AlertType.WARNING, "Hãy nhập vào tuổi hợp lệ!", ButtonType.OK);
+//			alert.setHeaderText(null);
+//			alert.showAndWait();
+//			return;
+//		}
 
 		// kiem tra cmnd nhap vao
 		// cmnd nhap vao phai la mot day so tu 1 toi 20 so
@@ -131,16 +151,27 @@ public class AddNhanKhau {
 		// ghi nhan gia tri ghi tat ca deu da hop le
 		int idInt = Integer.parseInt(tfId.getText());
 		String tenString = tfTen.getText();
-		int tuoiInt = Integer.parseInt(tfTuoi.getText());
+		String tuoiInt =tfTuoi.getText();//int tuoiInt = Integer.parseInt(tfTuoi.getText());
 		String cmndString = tfCmnd.getText();
 		String sdtString = tfSdt.getText();
+                String gioitinhString = tfGioiTinh.getText();
+                String noisinhString = tfNoiSinh.getText();
+                String nguyenquanString = tfNguyenQuan.getText();
+                String dantocString = tfDanToc.getText();
+                String quoctichString = tfQuocTich.getText();
+                String sohochieuString = tfSoHoChieu.getText();
+                String noithuongtruString = tfNoiThuongTru.getText();
+                String dc_hientaiString = tfDiaChiHienTai.getText();
+                String tongiaoString = tfTonGiao.getText();
+                String ghichuString = tfGhiChu.getText();
 		int mahokhauInt = Integer.parseInt(tfMaHoKhau.getText());
 		String quanheString = tfQuanHe.getText();
 
 		NhanKhauService nhanKhauService = new NhanKhauService();
 		QuanHeService quanHeService = new QuanHeService();
 
-		NhanKhauModel nhanKhauModel = new NhanKhauModel(idInt, cmndString, tenString, tuoiInt, sdtString);
+//		NhanKhauModel nhanKhauModel = new NhanKhauModel(idInt, cmndString, tenString, tuoiInt, sdtString);
+                NhanKhauModel nhanKhauModel = new NhanKhauModel(idInt, cmndString, tenString, tuoiInt, sdtString, gioitinhString, noisinhString, nguyenquanString, dantocString, quoctichString, sohochieuString, noithuongtruString, dc_hientaiString, tongiaoString, ghichuString);
 		QuanHeModel quanHeModel = new QuanHeModel(mahokhauInt, idInt, quanheString);
 
 		nhanKhauService.add(nhanKhauModel);

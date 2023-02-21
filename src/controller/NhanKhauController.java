@@ -52,6 +52,8 @@ public class NhanKhauController implements Initializable {
 	private TableColumn<NhanKhauModel, String> colSDT;
 	@FXML
 	private TableColumn<NhanKhauModel, String> colMaHo;
+        @FXML
+        private TableColumn<NhanKhauModel, String> colGhiChu;
 	@FXML
 	private TableView<NhanKhauModel> tvNhanKhau;
 	@FXML
@@ -89,6 +91,7 @@ public class NhanKhauController implements Initializable {
 		colTuoi.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("tuoi"));
 		colCMND.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("cmnd"));
 		colSDT.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("sdt"));
+                colGhiChu.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("ghiChu"));
 		try {
 			colMaHo.setCellValueFactory(
 					(CellDataFeatures<NhanKhauModel, String> p) -> new ReadOnlyStringWrapper(mapIdToMaho.get(p.getValue().getId()).toString())
@@ -100,7 +103,7 @@ public class NhanKhauController implements Initializable {
 		tvNhanKhau.setItems(listValueTableView);
 
 		// thiet lap gia tri cho combobox
-		ObservableList<String> listComboBox = FXCollections.observableArrayList("Tên", "Tuổi", "Mã nhân khẩu"); //id = mã nhân khẩu
+		ObservableList<String> listComboBox = FXCollections.observableArrayList("Tên", "Ngày Sinh", "Mã nhân khẩu"); //id = mã nhân khẩu
 		cbChooseSearch.setValue("Tên");
 		cbChooseSearch.setItems(listComboBox);
 	}
@@ -146,7 +149,7 @@ public class NhanKhauController implements Initializable {
 			}
 			break;
 		}
-		case "Tuổi": {
+		case "Ngày Sinh": {
 			// neu khong nhap gi -> thong bao loi
 			if (keySearch.length() == 0) {
 				tvNhanKhau.setItems(listValueTableView);
@@ -168,7 +171,7 @@ public class NhanKhauController implements Initializable {
 			int index = 0;
 			List<NhanKhauModel> listNhanKhau_tmp = new ArrayList<>();
 			for (NhanKhauModel nhanKhauModel : listNhanKhau) {
-				if (nhanKhauModel.getTuoi() == Integer.parseInt(keySearch)) {
+				if (nhanKhauModel.getTuoi().equals(keySearch)) { //nhanKhauModel.getTuoi() == Integer.parseInt(keySearch
 					listNhanKhau_tmp.add(nhanKhauModel);
 					index++;
 				}
