@@ -16,11 +16,12 @@ public class NopTienService {
 	public boolean add(NopTienModel nopTienModel) throws ClassNotFoundException, SQLException {
 		Connection connection = MysqlConnection.getMysqlConnection();
         String query = "INSERT INTO nop_tien(IDNopTien, MaKhoanThu, NgayThu)" 
-                    + " values (?, ?, NOW())";
+                    + " values (?, ?, ?)";
         
         PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
         preparedStatement.setInt(1,nopTienModel.getIdNopTien());
         preparedStatement.setInt(2, nopTienModel.getMaKhoanThu());
+        preparedStatement.setDate(3, nopTienModel.getNgayThu());
         preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();

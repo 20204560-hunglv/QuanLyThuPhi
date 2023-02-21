@@ -2,6 +2,8 @@ package controller.noptien;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 
 import javafx.event.ActionEvent;
@@ -14,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import models.KhoanThuModel;
 import models.NhanKhauModel;
@@ -25,6 +28,8 @@ public class AddNopTien {
 	private TextField tfTenKhoanThu;
 	@FXML
 	private TextField tfTenNguoiNop;
+        @FXML
+	private DatePicker datepicker;
 	private KhoanThuModel khoanThuModel;
 	private NhanKhauModel nhanKhauModel;
 	
@@ -78,7 +83,7 @@ public class AddNopTien {
 				}
 			}
 			
-			new NopTienService().add(new NopTienModel( nhanKhauModel.getId(),khoanThuModel.getMaKhoanThu()));
+			new NopTienService().add(new NopTienModel( nhanKhauModel.getId(),khoanThuModel.getMaKhoanThu(),java.sql.Date.valueOf(datepicker.getValue()) ));
 		}
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
 		stage.setTitle("Thêm nộp tiền");

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 21, 2023 lúc 10:24 AM
+-- Thời gian đã tạo: Th2 21, 2023 lúc 03:51 PM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -156,7 +156,8 @@ CREATE TABLE `nop_tien` (
 
 INSERT INTO `nop_tien` (`IDNopTien`, `MaKhoanThu`, `NgayThu`) VALUES
 (1, 2, '2023-02-21'),
-(2, 2, '2023-02-21');
+(2, 2, '2023-02-21'),
+(4, 3, '2023-02-22');
 
 -- --------------------------------------------------------
 
@@ -208,11 +209,19 @@ CREATE TABLE `tam_tru` (
 CREATE TABLE `tam_vang` (
   `id_tam_vang` int(11) NOT NULL,
   `idNhanKhau` int(11) NOT NULL,
-  `maGiayTamVang` varchar(100) NOT NULL,
   `tuNgay` date NOT NULL,
   `denNgay` date NOT NULL,
   `lydo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `tam_vang`
+--
+
+INSERT INTO `tam_vang` (`id_tam_vang`, `idNhanKhau`, `tuNgay`, `denNgay`, `lydo`) VALUES
+(1, 1, '2023-02-01', '2023-02-28', ''),
+(2, 1, '2023-02-01', '2023-02-28', '54656'),
+(3, 3, '2023-02-01', '2023-02-28', 'di vang');
 
 -- --------------------------------------------------------
 
