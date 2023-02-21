@@ -53,7 +53,7 @@ public class UpdateHoKhau {
 
 		tfDiaChi.setText(hoKhauModel.getDiaChi());
 		tfMaHo.setText(Integer.toString(hoKhauModel.getMaHo()));
-		tfSoThanhVien.setText(Integer.toString(hoKhauModel.getSoThanhvien()));
+		tfSoThanhVien.setText(hoKhauModel.getMaKhuVuc());
 		tfTenChuHo.setText(mapIDToTenNhanKhau.get(mapMahoToID.get(hoKhauModel.getMaHo())));
 		tfSDT.setText(mapIDToSDT.get(mapMahoToID.get(hoKhauModel.getMaHo())));
 	}

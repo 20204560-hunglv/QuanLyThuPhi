@@ -1,46 +1,49 @@
 package models;
 
 public class NhanKhauModel {
-	int id;
-	String cmnd;
-	String ten;
-	String tuoi;
-	String sdt;
-	String gioiTinh;
-        String noiSinh;
-        String nguyenQuan;
-        String danToc;
-        String quocTich;
-        String soHoChieu;
-        String noiThuongTru;
-        String diaChiHienTai;
-        String tonGiao;
-        String ghiChu;
-        
-	public NhanKhauModel() {}
-	
-	public NhanKhauModel(String cmnd, String ten, String tuoi , String sdt) {
-		this.cmnd = cmnd;
-		this.ten=ten;
-		this.tuoi=tuoi;
-		this.sdt = sdt;
-	}
-	
-	public NhanKhauModel(int id,String cmnd, String ten, String tuoi , String sdt) {
-		this.id=id;
-		this.cmnd = cmnd;
-		this.ten=ten;
-		this.tuoi=tuoi;
-		this.sdt = sdt;
-	}
-        public NhanKhauModel(int id,String cmnd, String ten, String tuoi , String sdt, String ghiChu) {
-		this.id=id;
-		this.cmnd = cmnd;
-		this.ten=ten;
-		this.tuoi=tuoi;
-		this.sdt = sdt;
-                this.ghiChu=ghiChu;
-	}
+
+    int id;
+    String cmnd;
+    String ten;
+    String tuoi;
+    String sdt;
+    String gioiTinh;
+    String noiSinh;
+    String nguyenQuan;
+    String danToc;
+    String quocTich;
+    String soHoChieu;
+    String noiThuongTru;
+    String diaChiHienTai;
+    String tonGiao;
+    String ghiChu;
+
+    public NhanKhauModel() {
+    }
+
+    public NhanKhauModel(String cmnd, String ten, String tuoi, String sdt) {
+        this.cmnd = cmnd;
+        this.ten = ten;
+        this.tuoi = tuoi;
+        this.sdt = sdt;
+    }
+
+    public NhanKhauModel(int id, String cmnd, String ten, String tuoi, String sdt) {
+        this.id = id;
+        this.cmnd = cmnd;
+        this.ten = ten;
+        this.tuoi = tuoi;
+        this.sdt = sdt;
+    }
+
+    public NhanKhauModel(int id, String cmnd, String ten, String tuoi, String sdt, String ghiChu) {
+        this.id = id;
+        this.cmnd = cmnd;
+        this.ten = ten;
+        this.tuoi = tuoi;
+        this.sdt = sdt;
+        this.ghiChu = ghiChu;
+    }
 
     public NhanKhauModel(int id, String cmnd, String ten, String tuoi, String sdt, String gioiTinh, String noiSinh, String nguyenQuan, String danToc, String quocTich, String soHoChieu, String noiThuongTru, String diaChiHienTai, String tonGiao, String ghiChu) {
         this.id = id;
@@ -59,46 +62,46 @@ public class NhanKhauModel {
         this.tonGiao = tonGiao;
         this.ghiChu = ghiChu;
     }
-        
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getCmnd() {
-		return cmnd;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setCmnd(String cmnd) {
-		this.cmnd = cmnd;
-	}
+    public String getCmnd() {
+        return cmnd;
+    }
 
-	public String getTen() {
-		return ten;
-	}
+    public void setCmnd(String cmnd) {
+        this.cmnd = cmnd;
+    }
 
-	public void setTen(String ten) {
-		this.ten = ten;
-	}
+    public String getTen() {
+        return ten;
+    }
 
-	public String getTuoi() {
-		return tuoi;
-	}
+    public void setTen(String ten) {
+        this.ten = ten;
+    }
 
-	public void setTuoi(String tuoi) {
-		this.tuoi = tuoi;
-	}
+    public String getTuoi() {
+        return tuoi;
+    }
 
-	public String getSdt() {
-		return sdt;
-	}
+    public void setTuoi(String tuoi) {
+        this.tuoi = tuoi;
+    }
 
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
-	}
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
+    }
 
     public String getGioiTinh() {
         return gioiTinh;
@@ -179,6 +182,5 @@ public class NhanKhauModel {
     public void setGhiChu(String ghiChu) {
         this.ghiChu = ghiChu;
     }
-	
-	
+
 }

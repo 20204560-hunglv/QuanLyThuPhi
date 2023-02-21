@@ -39,12 +39,12 @@
       <TextField fx:id="tfGioiTinh" layoutX="118.0" layoutY="317.0" prefHeight="39.0" prefWidth="222.0" />
       <Label layoutX="450.0" layoutY="328.0" text="Tôn giáo" />
       <TextField fx:id="tfTonGiao" layoutX="561.0" layoutY="317.0" prefHeight="39.0" prefWidth="222.0" />
-      <Label layoutX="13.0" layoutY="378.0" text="Hộ chiếu số" />
+      <Label layoutX="13.0" layoutY="378.0" text="Số hộ chiếu" />
       <TextField fx:id="tfSoHoChieu" layoutX="118.0" layoutY="367.0" prefHeight="39.0" prefWidth="222.0" />
       <Label layoutX="452.0" layoutY="378.0" text="Địa chỉ hiện tại" />
       <TextField fx:id="tfDiaChiHienTai" layoutX="559.0" layoutY="367.0" prefHeight="39.0" prefWidth="222.0" />
-      <Label layoutX="210.0" layoutY="476.0" text="Ghi chú" />
-      <TextField fx:id="tfGhiChu" layoutX="341.0" layoutY="465.0" prefHeight="39.0" prefWidth="243.0" />
+      <Label layoutX="17.0" layoutY="476.0" text="Ghi chú" />
+      <TextField fx:id="tfGhiChu" layoutX="118.0" layoutY="465.0" prefHeight="39.0" prefWidth="222.0" />
       <Label layoutX="13.0" layoutY="424.0" text="Quốc tịch" />
       <TextField fx:id="tfQuocTich" layoutX="118.0" layoutY="413.0" prefHeight="39.0" prefWidth="222.0" />
    </children>

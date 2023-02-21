@@ -83,7 +83,7 @@ public class HoKhauController implements Initializable {
 		colMaHoKhau.setCellValueFactory(new PropertyValueFactory<HoKhauModel, String>("maHo"));
 		colMaChuHo.setCellValueFactory((CellDataFeatures<HoKhauModel, String> p) -> new ReadOnlyStringWrapper(
 				mapIdToTen.get(mapMahoToId.get(p.getValue().getMaHo())).toString()));
-		colSoThanhVien.setCellValueFactory(new PropertyValueFactory<HoKhauModel, String>("soThanhvien"));
+		colSoThanhVien.setCellValueFactory(new PropertyValueFactory<HoKhauModel, String>("soThanhVien"));
 		colDiaChi.setCellValueFactory(new PropertyValueFactory<HoKhauModel, String>("diaChi"));
 		tvHoKhau.setItems(listValueTableView);
 

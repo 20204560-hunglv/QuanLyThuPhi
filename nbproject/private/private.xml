@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/services/HoKhauService.java</file>
-            <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/controller/NhanKhauController.java</file>
-            <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/controller/nhankhau/UpdateNhanKhau.java</file>
+            <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/services/QuanHeService.java</file>
+            <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/controller/nhankhau/AddNhanKhau.java</file>
             <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/controller/HoKhauController.java</file>
-            <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/views/nhankhau/UpdateNhanKhau.fxml</file>
+            <file>file:/D:/Hùng/Nhom30_QLThuPhi/QuanLyThuPhi/src/models/HoKhauModel.java</file>
         </group>
     </open-files>
 </project-private>

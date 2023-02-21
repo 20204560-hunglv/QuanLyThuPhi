@@ -36,6 +36,29 @@ public class AddHoKhau {
 	private TextField tfCMND;
 	@FXML
 	private TextField tfSoDienThoai;
+        @FXML
+	private TextField tfMaKV;
+        @FXML
+	private TextField tfGioiTinh;
+        @FXML
+	private TextField tfSoHoChieu;
+        @FXML
+	private TextField tfQuocTich;
+        @FXML
+	private TextField tfGhiChu;
+        @FXML
+	private TextField tfDanToc;
+        @FXML
+	private TextField tfNoiTru;
+        @FXML
+	private TextField tfNoiSinh;
+        @FXML
+	private TextField tfNguyenQuan;
+        @FXML
+	private TextField tfTonGiao;
+        @FXML
+	private TextField tfDiaChiHienTai;
+        
 
 	@FXML
 	public void addHoKhau(ActionEvent event) throws ClassNotFoundException, SQLException {
@@ -139,9 +162,20 @@ public class AddHoKhau {
 		String tuoiChuHo = tfTuoi.getText();//int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
 		String cmndChuHo = tfCMND.getText();
 		String sdtChuHo = tfSoDienThoai.getText();
+                String maKhuVuc = tfMaKV.getText();
+                String gioitinh = tfGioiTinh.getText();
+                String sohochieu = tfSoHoChieu.getText();
+                String quoctich = tfQuocTich.getText();
+                String dantoc = tfDanToc.getText();
+                String noithuongtru = tfNoiTru.getText();
+                String noisinh = tfNoiSinh.getText();
+                String nguyenquan = tfNguyenQuan.getText();
+                String tongiao = tfTonGiao.getText();
+                String diachiHT = tfDiaChiHienTai.getText();
+                String ghichu = tfGhiChu.getText();
 		
-		HoKhauModel hoKhauModel = new HoKhauModel(maHo, 0, diaChi);
-		NhanKhauModel nhanKhauModel = new NhanKhauModel(maChuHo, cmndChuHo, tenChuHo, tuoiChuHo, sdtChuHo);
+		HoKhauModel hoKhauModel = new HoKhauModel(maHo,(int)0, diaChi, maKhuVuc);
+		NhanKhauModel nhanKhauModel = new NhanKhauModel(maChuHo, cmndChuHo, tenChuHo, tuoiChuHo, sdtChuHo, gioitinh, noisinh, nguyenquan, dantoc, quoctich, sohochieu, noithuongtru, diachiHT, tongiao, ghichu);
 		
 		new HoKhauService().add(hoKhauModel);
 		new NhanKhauService().add(nhanKhauModel);
