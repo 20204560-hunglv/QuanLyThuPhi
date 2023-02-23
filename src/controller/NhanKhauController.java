@@ -84,6 +84,10 @@ public class NhanKhauController implements Initializable {
         listQuanHe.forEach(quanhe -> {
             mapIdToMaho.put(quanhe.getIdThanhVien(), quanhe.getMaHo());
         });
+        List<ChuHoModel> listchuho = new ChuHoService().getListChuHo();
+        listchuho.forEach(chuho -> {
+            mapIdToMaho.put(chuho.getIdChuHo(), chuho.getMaHo());
+        });
 
         // thiet lap cac cot cho tableviews
         colMaNhanKhau.setCellValueFactory(new PropertyValueFactory<NhanKhauModel, String>("id"));
@@ -268,8 +272,9 @@ public class NhanKhauController implements Initializable {
                         break;
                     }
                 }
-
+                System.out.println("1");
                 new NhanKhauService().del(nhanKhauModel.getId());
+                System.out.println("2");
                 new QuanHeService().del(maho, nhanKhauModel.getId());
             }
         }

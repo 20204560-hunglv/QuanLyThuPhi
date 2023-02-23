@@ -64,5 +64,24 @@ public class QuanHeService {
 		connection.close();
 		return list;
 	}
+        public List<QuanHeModel> getListQuanHe(int MaHo) throws ClassNotFoundException, SQLException {
+		List<QuanHeModel> list = new ArrayList<>();
+
+		Connection connection = MysqlConnection.getMysqlConnection();
+		String query = "SELECT * FROM quan_he where MaHo="+MaHo+" ";
+		PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			QuanHeModel quanHeModel = new QuanHeModel();
+			quanHeModel.setMaHo(rs.getInt("MaHo"));
+			quanHeModel.setIdThanhVien(rs.getInt("IDThanhVien"));
+			quanHeModel.setQuanHe(rs.getString("QuanHe"));
+			list.add(quanHeModel);
+		}
+
+		preparedStatement.close();
+		connection.close();
+		return list;
+	}
 
 }

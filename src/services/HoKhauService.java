@@ -16,11 +16,12 @@ public class HoKhauService {
 	public boolean add(HoKhauModel hoKhauModel) throws ClassNotFoundException, SQLException {
 
 		Connection connection = MysqlConnection.getMysqlConnection();
-		String query = "INSERT INTO ho_khau(MaHo, maKhuVuc, DiaChi)" + " values (?, ?, ?)";
+		String query = "INSERT INTO ho_khau(MaHo, maKhuVuc, DiaChi,SoThanhVien)" + " values (?, ?, ?,?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 		preparedStatement.setInt(1, hoKhauModel.getMaHo());
 		preparedStatement.setString(2, hoKhauModel.getMaKhuVuc());
 		preparedStatement.setString(3, hoKhauModel.getDiaChi());
+                preparedStatement.setInt(4, hoKhauModel.getSoThanhVien());
 		preparedStatement.executeUpdate();
 		preparedStatement.close();
 		connection.close();

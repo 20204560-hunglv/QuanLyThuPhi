@@ -68,6 +68,30 @@ public class NhanKhauService {
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.executeUpdate();
 		}
+                query = "SELECT * FROM khai_tu WHERE idNguoiKhai='" + ID + "' or idNguoiChet='" + ID + "'";
+		preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+		rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			query = "DELETE FROM khai_tu WHERE idNguoiKhai='" + ID + "' or idNguoiChet='" + ID + "'";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.executeUpdate();
+		}
+                query = "SELECT * FROM tam_vang WHERE idNhanKhau='" + ID + "'";
+		preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+		rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			query = "DELETE FROM tam_vang WHERE idNhanKhau='" + ID + "'";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.executeUpdate();
+		}
+                query = "SELECT * FROM tam_tru WHERE idNhanKhau='" + ID + "'";
+		preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+		rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			query = "DELETE FROM tam_tru WHERE idNhanKhau='" + ID + "'";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.executeUpdate();
+		}
 		query = "DELETE FROM nhan_khau WHERE ID = '" + ID + "'";
 		preparedStatement = connection.prepareStatement(query);
 		preparedStatement.executeUpdate();
@@ -106,5 +130,19 @@ public class NhanKhauService {
 		connection.close();
 		return list;
 	}
+        public List<NhanKhauModel> getListThanhVien(int MaHo) throws ClassNotFoundException, SQLException {
+		List<NhanKhauModel> list = new ArrayList<>();
 
+		Connection connection = MysqlConnection.getMysqlConnection();
+		String query = "SELECT ID,CMND,Ten,tuoi,SDT,gioiTinh,noiSinh,nguyenQuan,danToc,quocTich,soHoChieu,noiThuongTru,diaChiHienTai,tonGiao,ghiChu FROM nhan_khau,quan_he where MaHo ="+MaHo+" and IDThanhVien = ID ";
+		PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			NhanKhauModel nhanKhauModel = new NhanKhauModel(rs.getInt("ID"), rs.getString("CMND"), rs.getString("Ten"), rs.getString("tuoi"), rs.getString("SDT"), rs.getString("gioiTinh"), rs.getString("noiSinh"), rs.getString("nguyenQuan"), rs.getString("danToc"), rs.getString("quocTich"), rs.getString("soHoChieu"), rs.getString("noiThuongTru"), rs.getString("diaChiHienTai"), rs.getString("tonGiao"), rs.getString("ghiChu"));
+			list.add(nhanKhauModel);
+		}
+		preparedStatement.close();
+		connection.close();
+		return list;
+	}
 }

@@ -33,7 +33,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="626.0" layoutY="740.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" styleClass="button1" stylesheets="@../source/Main.css" text="Tách hộ" textFill="#1996f5">
+      <Button layoutX="626.0" layoutY="740.0" mnemonicParsing="false" onAction="#tachHoKhau" prefHeight="50.0" prefWidth="150.0" styleClass="button1" stylesheets="@../source/Main.css" text="Tách hộ" textFill="#1996f5">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
