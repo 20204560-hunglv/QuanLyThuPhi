@@ -345,6 +345,17 @@ public class NhanKhauController implements Initializable {
         stage.setResizable(false);
         stage.showAndWait();
     }
+    public void khaiTu(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/views/nhankhau/KhaiTu.fxml"));
+        Parent home = loader.load();
+        Stage stage = new Stage();
+        stage.setScene(new Scene(home, 800, 600));
+        stage.setResizable(false);
+        stage.showAndWait();
+        showNhanKhau();
+    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {

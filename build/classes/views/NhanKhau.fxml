@@ -52,7 +52,7 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Button>
-      <Button layoutX="1145.0" layoutY="740.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" styleClass="button1" stylesheets="@../source/Main.css" text="Khai tử" textAlignment="CENTER" textFill="#1996f5" wrapText="true">
+      <Button layoutX="1145.0" layoutY="740.0" mnemonicParsing="false" onAction="#khaiTu" prefHeight="50.0" prefWidth="150.0" styleClass="button1" stylesheets="@../source/Main.css" text="Khai tử" textAlignment="CENTER" textFill="#1996f5" wrapText="true">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

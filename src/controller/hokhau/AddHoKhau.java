@@ -1,12 +1,17 @@
 package controller.hokhau;
 
+import controller.noptien.ChooseNguoiNop;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
@@ -58,7 +63,7 @@ public class AddHoKhau {
 	private TextField tfTonGiao;
         @FXML
 	private TextField tfDiaChiHienTai;
-        
+        private HoKhauModel hokhau;
 
 	@FXML
 	public void addHoKhau(ActionEvent event) throws ClassNotFoundException, SQLException {
@@ -185,5 +190,22 @@ public class AddHoKhau {
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
 	}
+        public void chonMaHoKhau() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/views/hokhau/ChooseHoKhau.fxml"));
+        Parent home = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Chọn hộ khẩu");
+        stage.setScene(new Scene(home, 600, 400));
+        stage.setResizable(false);
+        stage.showAndWait();
+
+        ChooseHoKhauController chooseHoKhau = loader.getController();
+        hokhau = chooseHoKhau.getHoKhauChoose();
+        if (hokhau == null) {
+            return;
+        }
+        tfMaChuHo.setText(Integer.toString(hokhau.getMaHo()));
+    }
 
 }
