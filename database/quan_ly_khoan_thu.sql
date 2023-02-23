@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 21, 2023 lúc 08:19 PM
+-- Thời gian đã tạo: Th2 23, 2023 lúc 10:21 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -79,6 +79,14 @@ CREATE TABLE `khai_tu` (
   `lyDoChet` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `khai_tu`
+--
+
+INSERT INTO `khai_tu` (`id`, `soGiayKhaiTu`, `idNguoiKhai`, `idNguoiChet`, `ngayKhai`, `ngayChet`, `lyDoChet`) VALUES
+(1, 1, 1, 2, '2023-02-08', '2023-02-14', 'bệnh'),
+(2, 2, 1, 4, '2023-02-23', '2023-02-01', '');
+
 -- --------------------------------------------------------
 
 --
@@ -134,7 +142,7 @@ INSERT INTO `nhan_khau` (`ID`, `CMND`, `Ten`, `tuoi`, `SDT`, `gioiTinh`, `noiSin
 (1, '123456', 'Nguyễn Văn A', '1983-02-01', NULL, 'Nam', 'Ha Noi', 'Ha Noi', 'Kinh', 'VN', '2312346', 'Ha Noi', 'HN', 'Không', 'Chủ hộ'),
 (2, '213456', 'Nguyễn Văn B', '2002-08-09', '01241', 'Nam', 'HN', 'adfsdf', 'Kinh', 'VN', '12356', 'sdfds', 'ádfsfds', 'Không', ''),
 (3, '1', 'Phạm Thị A', '1990-09-09', '2', 'Nữ', 'afds', 'fadfa', 'afds', 'VN', '123546', 'afds', 'sdfgdf', 'dfsfds', ''),
-(4, '654', 'Lê Văn C', '1997-08-05', '456', 'Nam', 'adsf', 'ádf', 'adf', 'adsfds', '654', 'ádf', 'ádf', 'ádf', ''),
+(4, '654', 'Lê Văn C', '1997-08-05', '456', 'Nam', 'adsf', 'ádf', 'adf', 'adsfds', '654', 'ádf', 'ádf', 'ádf', 'Đã mất'),
 (5, '987546', 'Lê Văn D', '2008-07-08', '213654', 'Nam', 'gds', 'sg', 'Kinh', 'ádf', '564', 'gf', 'sg', 'sg', ''),
 (6, '213645', 'Phạm Thị B', '2000-01-01', '213546', 'Nữ', 'hgd', 'gd', 'hgd', 'gfv', '321654', 'ghd', 'hd', 'dhg', '');
 
@@ -331,6 +339,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `ho_khau`
   MODIFY `MaHo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT cho bảng `khai_tu`
+--
+ALTER TABLE `khai_tu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `khoan_thu`
