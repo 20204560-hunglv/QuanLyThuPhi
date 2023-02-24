@@ -45,8 +45,7 @@ public class KhaiTuController {
         stage.setTitle("Chọn người khai");
         stage.setScene(new Scene(home, 800, 600));
         stage.setResizable(false);
-        stage.showAndWait();
-
+        stage.showAndWait();;
         ChooseNguoiNop chooseNguoiNop = loader.getController();
         nguoiKhai = chooseNguoiNop.getNhanKhauChoose();
         if (nguoiKhai == null) {
@@ -87,9 +86,7 @@ public class KhaiTuController {
             return;
         }
         // kiem tra sogiaykhaitu them moi da ton tai hay khong
-        System.out.println("0");
         List<KhaiTuModel> listkhaitu = new KhaiTuService().getListKhaiTu();
-        System.out.println("1");
         for (KhaiTuModel khaitu : listkhaitu) {
             if (khaitu.getSoGIayKhaiTu()== Integer.parseInt(tfSoGiayKhaiTu.getText())) {
                 Alert alert = new Alert(Alert.AlertType.WARNING, "Số giấy khai tử bị trùng!", ButtonType.OK);

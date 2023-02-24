@@ -2,6 +2,7 @@ package controller.nhankhau;
 
 import controller.hokhau.ChooseHoKhauController;
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import models.HoKhauModel;
 import models.NhanKhauModel;
 import models.QuanHeModel;
@@ -31,7 +33,7 @@ public class AddNhanKhau {
     @FXML
     private TextField tfTen;
     @FXML
-    private TextField tfTuoi;
+    private DatePicker tfTuoi;
     @FXML
     private TextField tfCmnd;
     @FXML
@@ -94,6 +96,14 @@ public class AddNhanKhau {
             alert.showAndWait();
             return;
         }
+        //kiem tra ngay sinh
+        if (tfTuoi.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING, "Hãy nhập ngày sinh", ButtonType.OK);
+            alert.setHeaderText(null);
+            alert.showAndWait();
+            return;
+        }
+        
 
         // kiem tra tuoi nhap vao
         // tuoi nhap vao nhieu nhat la 1 so co 3 chu so
@@ -156,7 +166,7 @@ public class AddNhanKhau {
         // ghi nhan gia tri ghi tat ca deu da hop le
         int idInt = Integer.parseInt(tfId.getText());
         String tenString = tfTen.getText();
-        String tuoiInt = tfTuoi.getText();//int tuoiInt = Integer.parseInt(tfTuoi.getText());
+        String tuoiInt = tfTuoi.getValue().toString();//int tuoiInt = Integer.parseInt(tfTuoi.getText());
         String cmndString = tfCmnd.getText();
         String sdtString = tfSdt.getText();
         String gioitinhString = tfGioiTinh.getText();

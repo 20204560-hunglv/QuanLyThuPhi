@@ -43,6 +43,20 @@ public class QuanHeService {
 		connection.close();
 		return true;
 	}
+        public boolean update(int maHo, int idthanhvien, String quanhe) throws ClassNotFoundException, SQLException {
+		Connection connection = MysqlConnection.getMysqlConnection();
+		PreparedStatement preparedStatement;
+
+		String query = "UPDATE quan_he set QuanHe = '"+quanhe+"' WHERE MaHo="+maHo+" and IDThanhVien ="+idthanhvien+" ";
+		System.out.println(query);
+		preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+		preparedStatement.executeUpdate();
+		preparedStatement.close();
+		connection.close();
+		
+		
+		return true;
+	}
 
 	// checked
 	public List<QuanHeModel> getListQuanHe() throws ClassNotFoundException, SQLException {
