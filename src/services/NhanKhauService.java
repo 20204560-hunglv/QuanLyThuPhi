@@ -138,6 +138,20 @@ public class NhanKhauService {
         connection.close();
         return list;
     }
+    public NhanKhauModel getNhanKhau(int idNhanKhau) throws ClassNotFoundException, SQLException {
+        NhanKhauModel nkm =null;
+
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "SELECT * FROM nhan_khau where ID="+idNhanKhau+" ";
+        PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            nkm = new NhanKhauModel(rs.getInt("ID"), rs.getString("CMND"), rs.getString("Ten"), rs.getString("tuoi"), rs.getString("SDT"), rs.getString("gioiTinh"), rs.getString("noiSinh"), rs.getString("nguyenQuan"), rs.getString("danToc"), rs.getString("quocTich"), rs.getString("soHoChieu"), rs.getString("noiThuongTru"), rs.getString("diaChiHienTai"), rs.getString("tonGiao"), rs.getString("ghiChu"));
+        }
+        preparedStatement.close();
+        connection.close();
+        return nkm;
+    }
 
     public List<NhanKhauModel> getListThanhVien(int MaHo) throws ClassNotFoundException, SQLException {
         List<NhanKhauModel> list = new ArrayList<>();

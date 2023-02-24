@@ -16,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import models.ChuHoModel;
 import models.HoKhauModel;
@@ -37,7 +38,7 @@ public class AddHoKhau {
     @FXML
     private TextField tfTenChuHo;
     @FXML
-    private TextField tfTuoi;
+    private DatePicker tfTuoi;
     @FXML
     private TextField tfCMND;
     @FXML
@@ -164,7 +165,7 @@ public class AddHoKhau {
         String diaChi = tfDiaChi.getText();
         int maChuHo = Integer.parseInt(tfMaChuHo.getText());
         String tenChuHo = tfTenChuHo.getText();
-        String tuoiChuHo = tfTuoi.getText();//int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
+        String tuoiChuHo = tfTuoi.getValue().toString();//int tuoiChuHo = Integer.parseInt(tfTuoi.getText());
         String cmndChuHo = tfCMND.getText();
         String sdtChuHo = tfSoDienThoai.getText();
         String maKhuVuc = tfMaKV.getText();
