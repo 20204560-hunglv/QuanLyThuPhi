@@ -42,11 +42,11 @@ public class TachHoKhauController implements Initializable {
     @FXML
     private TableView<NhanKhauModel> tvBanDau;
     @FXML
-    private TableColumn<NhanKhauModel,String> colTenBD;
+    private TableColumn<NhanKhauModel, String> colTenBD;
     @FXML
-    private TableColumn<NhanKhauModel,String> colDateBD;
+    private TableColumn<NhanKhauModel, String> colDateBD;
     @FXML
-    private TableColumn<NhanKhauModel,String> colQuanHeBD;
+    private TableColumn<NhanKhauModel, String> colQuanHeBD;
     @FXML
     private TextField tfMaHKMoi;
     @FXML
@@ -54,21 +54,21 @@ public class TachHoKhauController implements Initializable {
     @FXML
     private TableView<NhanKhauModel> tvMoi;
     @FXML
-    private TableColumn<NhanKhauModel,String> colTenMoi;
+    private TableColumn<NhanKhauModel, String> colTenMoi;
     @FXML
-    private TableColumn<NhanKhauModel,String> colDateMoi;
+    private TableColumn<NhanKhauModel, String> colDateMoi;
     @FXML
-    private TableColumn<NhanKhauModel,String> colQuanHeMoi;
+    private TableColumn<NhanKhauModel, String> colQuanHeMoi;
     private ObservableList<NhanKhauModel> listValueTableViewBD;
     private List<NhanKhauModel> listThanhVienBD;
     private ObservableList<NhanKhauModel> listValueTableViewMoi;
-    private List<NhanKhauModel> listThanhVienMoi=new ArrayList<>();
+    private List<NhanKhauModel> listThanhVienMoi = new ArrayList<>();
     private NhanKhauModel chuHoMoi;
-    
+
     private HoKhauModel hokhauBD;
     private HoKhauModel hokhauMoi;
-    
-    public void chonHoKhau() throws IOException,ClassNotFoundException, SQLException {
+
+    public void chonHoKhau() throws IOException, ClassNotFoundException, SQLException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/views/hokhau/ChooseHoKhau.fxml"));
         Parent home = loader.load();
@@ -84,7 +84,7 @@ public class TachHoKhauController implements Initializable {
             return;
         }
         tfMaHKBanDau.setText(Integer.toString(hokhauBD.getMaHo()));
-        
+
         Map<Integer, Integer> mapToIDChuho = new HashMap<>();
         List<ChuHoModel> listchuho = new ChuHoService().getListChuHo();
         listchuho.forEach(chuho -> {
@@ -101,9 +101,10 @@ public class TachHoKhauController implements Initializable {
         listThanhVienBD = new NhanKhauService().getListThanhVien(hokhauBD.getMaHo());
         showTvBanDau();
     }
-    public void showTvBanDau() throws ClassNotFoundException, SQLException{
+
+    public void showTvBanDau() throws ClassNotFoundException, SQLException {
         listValueTableViewBD = FXCollections.observableArrayList(listThanhVienBD);
-        
+
         Map<Integer, String> mapIdToQuanHe = new HashMap<>();// có thể đặt là biến cục bộ
         List<QuanHeModel> listQuanHe = new QuanHeService().getListQuanHe(hokhauBD.getMaHo());
         listQuanHe.forEach(quanhe -> {
@@ -123,7 +124,8 @@ public class TachHoKhauController implements Initializable {
 
         tvBanDau.setItems(listValueTableViewBD);
     }
-    public void showTvMoi() throws ClassNotFoundException, SQLException{
+
+    public void showTvMoi() throws ClassNotFoundException, SQLException {
         listValueTableViewMoi = FXCollections.observableArrayList(listThanhVienMoi);
 
         // tao map anh xa gia tri Id sang maHo
@@ -146,36 +148,60 @@ public class TachHoKhauController implements Initializable {
 
         tvMoi.setItems(listValueTableViewMoi);
     }
-    public void chuyenSangPhai() throws ClassNotFoundException, SQLException{
-        NhanKhauModel nhanKhauModel= tvBanDau.getSelectionModel().getSelectedItem();
-        listThanhVienBD.remove(nhanKhauModel);
-        showTvBanDau();
-        listThanhVienMoi.add(nhanKhauModel);
-        showTvMoi();
+
+    public void chuyenSangPhai() throws ClassNotFoundException, SQLException {
+        NhanKhauModel nhanKhauModel = tvBanDau.getSelectionModel().getSelectedItem();
+        if (nhanKhauModel != null) {
+            listThanhVienBD.remove(nhanKhauModel);
+            showTvBanDau();
+            listThanhVienMoi.add(nhanKhauModel);
+            showTvMoi();
+        }
     }
-    public void chuyenSangTrai() throws ClassNotFoundException, SQLException{
-        NhanKhauModel nhanKhauModel= tvMoi.getSelectionModel().getSelectedItem();
-        listThanhVienMoi.remove(nhanKhauModel);
-        showTvMoi();
-        listThanhVienBD.add(nhanKhauModel);
-        showTvBanDau();
+
+    public void chuyenSangTrai() throws ClassNotFoundException, SQLException {
+        NhanKhauModel nhanKhauModel = tvMoi.getSelectionModel().getSelectedItem();
+        if (nhanKhauModel != null) {
+            listThanhVienMoi.remove(nhanKhauModel);
+            showTvMoi();
+            listThanhVienBD.add(nhanKhauModel);
+            showTvBanDau();
+        }
     }
-    public void chonChuHoMoi() throws ClassNotFoundException, SQLException{
-        NhanKhauModel nhanKhauModel= tvMoi.getSelectionModel().getSelectedItem();
-        chuHoMoi=nhanKhauModel;
-        listThanhVienMoi.remove(nhanKhauModel);
-        showTvMoi();
-        tfTenMoi.setText(chuHoMoi.getTen());
+
+    public void chonChuHoMoi() throws ClassNotFoundException, SQLException {
+        NhanKhauModel nhanKhauModel = tvMoi.getSelectionModel().getSelectedItem();
+        if (nhanKhauModel != null) {
+            if (chuHoMoi != null) {
+                listThanhVienMoi.add(chuHoMoi);
+            }
+            chuHoMoi = nhanKhauModel;
+            listThanhVienMoi.remove(nhanKhauModel);
+            showTvMoi();
+            tfTenMoi.setText(chuHoMoi.getTen());
+        }
+
     }
-    public void xacNhan(ActionEvent event) throws ClassNotFoundException, SQLException{
+
+    public void xacNhan(ActionEvent event) throws ClassNotFoundException, SQLException {
         int maHo = Integer.parseInt(tfMaHKMoi.getText());
         HoKhauModel hoKhauModel = new HoKhauModel(maHo, 1, hokhauBD.getDiaChi(), hokhauBD.getMaKhuVuc());
         new HoKhauService().add(hoKhauModel);
         new ChuHoService().add(new ChuHoModel(maHo, chuHoMoi.getId()));
+        
+        Map<Integer, String> mapIdToQuanHe = new HashMap<>();
+        List<QuanHeModel> listQuanHe = new QuanHeService().getListQuanHe(hokhauBD.getMaHo());
+        listQuanHe.forEach(quanhe -> {
+            mapIdToQuanHe.put(quanhe.getIdThanhVien(), quanhe.getQuanHe());
+        });
+        
         new QuanHeService().del(hokhauBD.getMaHo(), chuHoMoi.getId());
-        if(!listThanhVienMoi.isEmpty()){
-            for(NhanKhauModel nhankhau : listThanhVienMoi){
-                new QuanHeService().del(maHo, nhankhau.getId());
+        if (!listThanhVienMoi.isEmpty()) {
+            for (NhanKhauModel nhankhau : listThanhVienMoi) {
+                System.out.println("alo");
+                new QuanHeService().del(hokhauBD.getMaHo(), nhankhau.getId());
+                String quanhe = mapIdToQuanHe.get(nhankhau.getId());
+                new QuanHeService().add(new QuanHeModel(maHo, nhankhau.getId(),quanhe ));
             }
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

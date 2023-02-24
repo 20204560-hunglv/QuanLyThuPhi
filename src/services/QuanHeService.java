@@ -12,90 +12,94 @@ import models.QuanHeModel;
 
 public class QuanHeService {
 
-	// checked
-	public boolean add(QuanHeModel quanHeModel) throws ClassNotFoundException, SQLException {
-		Connection connection = MysqlConnection.getMysqlConnection();
-		String query = "INSERT INTO quan_he(MaHo, IDThanhVien, QuanHe)" + " values (?, ?, ?)";
+    // checked
+    public boolean add(QuanHeModel quanHeModel) throws ClassNotFoundException, SQLException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "INSERT INTO quan_he(MaHo, IDThanhVien, QuanHe)" + " values (?, ?, ?)";
 
-		PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-		preparedStatement.setInt(1, quanHeModel.getMaHo());
-		preparedStatement.setInt(2, quanHeModel.getIdThanhVien());
-		preparedStatement.setString(3, quanHeModel.getQuanHe());
-		preparedStatement.executeUpdate();
-		query = "UPDATE ho_khau set SoThanhVien = SoThanhVien + 1 where maho='" + quanHeModel.getMaHo() + "';";
-		preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-		preparedStatement.executeUpdate();
-		preparedStatement.close();
-		connection.close();
-		return true;
-	}
+        PreparedStatement preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.setInt(1, quanHeModel.getMaHo());
+        preparedStatement.setInt(2, quanHeModel.getIdThanhVien());
+        preparedStatement.setString(3, quanHeModel.getQuanHe());
+        preparedStatement.executeUpdate();
+        query = "UPDATE ho_khau set SoThanhVien = SoThanhVien + 1 where maho='" + quanHeModel.getMaHo() + "';";
+        preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
+        return true;
+    }
 
-	// cheked
-	public boolean del(int maHo, int idThanhVien) throws ClassNotFoundException, SQLException {
+    // cheked
+    public boolean del(int maHo, int idThanhVien) throws ClassNotFoundException, SQLException {
 //		String sql = "DELETE FROM quan_he WHERE  MaHo='" + maHo + "' AND IDThanhVien = '" + idThanhVien + "';";
-		Connection connection = MysqlConnection.getMysqlConnection();
+        Connection connection = MysqlConnection.getMysqlConnection();
 //		PreparedStatement preparedStatement = connection.prepareStatement(sql);
 //		preparedStatement.executeUpdate();
-		String sql = "UPDATE ho_khau set SoThanhVien = SoThanhVien - 1 where maho='" + maHo + "';";
-		PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-		preparedStatement.executeUpdate();
-		preparedStatement.close();
-		connection.close();
-		return true;
-	}
-        public boolean update(int maHo, int idthanhvien, String quanhe) throws ClassNotFoundException, SQLException {
-		Connection connection = MysqlConnection.getMysqlConnection();
-		PreparedStatement preparedStatement;
+        String sql = "UPDATE ho_khau set SoThanhVien = SoThanhVien - 1 where maho='" + maHo + "';";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.executeUpdate();
+        String query = "DELETE FROM quan_he WHERE MaHo = "+maHo+" and IDThanhVien= "+idThanhVien+" ";
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
+        return true;
+    }
 
-		String query = "UPDATE quan_he set QuanHe = '"+quanhe+"' WHERE MaHo="+maHo+" and IDThanhVien ="+idthanhvien+" ";
-		System.out.println(query);
-		preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-		preparedStatement.executeUpdate();
-		preparedStatement.close();
-		connection.close();
-		
-		
-		return true;
-	}
+    public boolean update(int maHo, int idthanhvien, String quanhe) throws ClassNotFoundException, SQLException {
+        Connection connection = MysqlConnection.getMysqlConnection();
+        PreparedStatement preparedStatement;
 
-	// checked
-	public List<QuanHeModel> getListQuanHe() throws ClassNotFoundException, SQLException {
-		List<QuanHeModel> list = new ArrayList<>();
+        String query = "UPDATE quan_he set QuanHe = '" + quanhe + "' WHERE MaHo=" + maHo + " and IDThanhVien =" + idthanhvien + " ";
+        System.out.println(query);
+        preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        preparedStatement.executeUpdate();
+        preparedStatement.close();
+        connection.close();
 
-		Connection connection = MysqlConnection.getMysqlConnection();
-		String query = "SELECT * FROM quan_he";
-		PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
-		ResultSet rs = preparedStatement.executeQuery();
-		while (rs.next()) {
-			QuanHeModel quanHeModel = new QuanHeModel();
-			quanHeModel.setMaHo(rs.getInt("MaHo"));
-			quanHeModel.setIdThanhVien(rs.getInt("IDThanhVien"));
-			quanHeModel.setQuanHe(rs.getString("QuanHe"));
-			list.add(quanHeModel);
-		}
+        return true;
+    }
 
-		preparedStatement.close();
-		connection.close();
-		return list;
-	}
-        public List<QuanHeModel> getListQuanHe(int MaHo) throws ClassNotFoundException, SQLException {
-		List<QuanHeModel> list = new ArrayList<>();
+    // checked
+    public List<QuanHeModel> getListQuanHe() throws ClassNotFoundException, SQLException {
+        List<QuanHeModel> list = new ArrayList<>();
 
-		Connection connection = MysqlConnection.getMysqlConnection();
-		String query = "SELECT * FROM quan_he where MaHo="+MaHo+" ";
-		PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
-		ResultSet rs = preparedStatement.executeQuery();
-		while (rs.next()) {
-			QuanHeModel quanHeModel = new QuanHeModel();
-			quanHeModel.setMaHo(rs.getInt("MaHo"));
-			quanHeModel.setIdThanhVien(rs.getInt("IDThanhVien"));
-			quanHeModel.setQuanHe(rs.getString("QuanHe"));
-			list.add(quanHeModel);
-		}
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "SELECT * FROM quan_he";
+        PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            QuanHeModel quanHeModel = new QuanHeModel();
+            quanHeModel.setMaHo(rs.getInt("MaHo"));
+            quanHeModel.setIdThanhVien(rs.getInt("IDThanhVien"));
+            quanHeModel.setQuanHe(rs.getString("QuanHe"));
+            list.add(quanHeModel);
+        }
 
-		preparedStatement.close();
-		connection.close();
-		return list;
-	}
+        preparedStatement.close();
+        connection.close();
+        return list;
+    }
+
+    public List<QuanHeModel> getListQuanHe(int MaHo) throws ClassNotFoundException, SQLException {
+        List<QuanHeModel> list = new ArrayList<>();
+
+        Connection connection = MysqlConnection.getMysqlConnection();
+        String query = "SELECT * FROM quan_he where MaHo=" + MaHo + " ";
+        PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(query);
+        ResultSet rs = preparedStatement.executeQuery();
+        while (rs.next()) {
+            QuanHeModel quanHeModel = new QuanHeModel();
+            quanHeModel.setMaHo(rs.getInt("MaHo"));
+            quanHeModel.setIdThanhVien(rs.getInt("IDThanhVien"));
+            quanHeModel.setQuanHe(rs.getString("QuanHe"));
+            list.add(quanHeModel);
+        }
+
+        preparedStatement.close();
+        connection.close();
+        return list;
+    }
 
 }
