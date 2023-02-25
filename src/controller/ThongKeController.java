@@ -41,12 +41,9 @@ public class ThongKeController implements Initializable {
 		listKhoanThu = new KhoanThuService().getListKhoanThu();
 		listValueTableView = FXCollections.observableArrayList(listKhoanThu);
 
-		List<NopTienModel> listNopTien = new NopTienService().getListNopTien();
-		Map<Integer, Long> mapMaKhoanThuToSoLuong = new TreeMap<>();
+		Map<Integer, Double> mapMaKhoanThuToSoLuong = new TreeMap<>();
 		for (KhoanThuModel khoanThuModel : listKhoanThu) {
-			long cntNopTien = listNopTien.stream()
-					.filter(noptien -> noptien.getMaKhoanThu() == khoanThuModel.getMaKhoanThu()).count();
-			mapMaKhoanThuToSoLuong.put(khoanThuModel.getMaKhoanThu(), cntNopTien);
+                            mapMaKhoanThuToSoLuong.put(khoanThuModel.getMaKhoanThu(), new NopTienService().gettongTien(khoanThuModel.getMaKhoanThu()));
 		}
 
 		// thiet lap cac cot cho tableviews
@@ -54,7 +51,7 @@ public class ThongKeController implements Initializable {
 		try {
 			colTongSoTien.setCellValueFactory(
 					(CellDataFeatures<KhoanThuModel, String> p) -> new ReadOnlyStringWrapper(Double.toString(
-							mapMaKhoanThuToSoLuong.get(p.getValue().getMaKhoanThu()) * p.getValue().getSoTien())));
+							mapMaKhoanThuToSoLuong.get(p.getValue().getMaKhoanThu()))));
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

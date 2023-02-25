@@ -49,6 +49,8 @@ public class NopTienController implements Initializable {
 	private TableColumn<NopTienModel, String> tbcTenKhoanThu;
 	@FXML
 	private TableColumn<NopTienModel, String> tbcNgayThu;
+        @FXML
+	private TableColumn<NopTienModel, String> tbcSoTien;
 	@FXML
 	private ComboBox<String> cbChooseSearch;
 	@FXML
@@ -89,7 +91,8 @@ public class NopTienController implements Initializable {
 			// TODO: handle exception
 		}
 
-		tbcNgayThu.setCellValueFactory(new PropertyValueFactory<>("ngayThu"));
+		tbcNgayThu.setCellValueFactory(new PropertyValueFactory<NopTienModel, String>("ngayThu"));
+                tbcSoTien.setCellValueFactory(new PropertyValueFactory<NopTienModel, String>("soTien"));
 		tvNopTien.setItems(listValueTableView);
 
 		// thiet lap gia tri cho combobox

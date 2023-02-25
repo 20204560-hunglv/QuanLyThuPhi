@@ -12,9 +12,10 @@
    <children>
       <TableView fx:id="tvNopTien" layoutX="10.0" layoutY="64.0" prefHeight="503.0" prefWidth="471.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
         <columns>
-          <TableColumn fx:id="tbcTenNguoi" prefWidth="328.8000078201294" text="Tên người nộp" />
-          <TableColumn fx:id="tbcTenKhoanThu" prefWidth="567.1999816894531" text="Tên khoản thu" />
-          <TableColumn fx:id="tbcNgayThu" prefWidth="476.79998779296875" text="Ngày thu" />
+          <TableColumn fx:id="tbcTenNguoi" prefWidth="306.3999881744385" text="Tên người nộp" />
+          <TableColumn fx:id="tbcTenKhoanThu" prefWidth="429.5999450683594" text="Tên khoản thu" />
+          <TableColumn fx:id="tbcNgayThu" prefWidth="389.5999755859375" text="Ngày thu" />
+            <TableColumn fx:id="tbcSoTien" prefWidth="250.0" text="Số tiền nộp" />
         </columns>
       </TableView>
       <TextField fx:id="tfSearch" layoutX="10.0" layoutY="14.0" prefHeight="40.0" prefWidth="447.0" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="10.0" />

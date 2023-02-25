@@ -10,20 +10,29 @@ public class NopTienModel {
     private int idNopTien;
     private int maKhoanThu;
     private Date ngayThu;
+    private double soTien;
 
     public NopTienModel() {
     }
 
-    public NopTienModel(int idNopTien, int maKhoanThu) {
-        this.idNopTien = idNopTien;
-        this.maKhoanThu = maKhoanThu;
-    }
+//    public NopTienModel(int idNopTien, int maKhoanThu) {
+//        this.idNopTien = idNopTien;
+//        this.maKhoanThu = maKhoanThu;
+//    }
+//
+//    public NopTienModel(int idNopTien, int maKhoanThu, Date ngayThu) {
+//        this.idNopTien = idNopTien;
+//        this.maKhoanThu = maKhoanThu;
+//        this.ngayThu = ngayThu;
+//    }
 
-    public NopTienModel(int idNopTien, int maKhoanThu, Date ngayThu) {
+    public NopTienModel(int idNopTien, int maKhoanThu, Date ngayThu, double soTien) {
         this.idNopTien = idNopTien;
         this.maKhoanThu = maKhoanThu;
         this.ngayThu = ngayThu;
+        this.soTien = soTien;
     }
+    
 
     public int getIdNopTien() {
         return idNopTien;
@@ -49,4 +58,12 @@ public class NopTienModel {
         this.ngayThu = ngayThu;
     }
 
+    public double getSoTien() {
+        return soTien;
+    }
+
+    public void setSoTien(double soTien) {
+        this.soTien = soTien;
+    }
+    
 }

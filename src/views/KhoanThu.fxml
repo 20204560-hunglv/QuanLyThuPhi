@@ -13,9 +13,10 @@
       <TableView fx:id="tvKhoanPhi" layoutX="10.0" layoutY="58.0" prefHeight="800" prefWidth="1400" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="70.0">
         <columns>
           <TableColumn fx:id="colMaKhoanPhi" prefWidth="219.19997882843018" text="Mã khoản thu" />
-          <TableColumn fx:id="colTenKhoanThu" prefWidth="312.00001525878906" text="Tên khoản thu" />
-            <TableColumn fx:id="colSoTien" prefWidth="499.19989013671875" text="Số tiền" />
-            <TableColumn fx:id="colLoaiKhoanThu" prefWidth="343.99993896484375" text="Loại khoản thu" />
+          <TableColumn fx:id="colTenKhoanThu" prefWidth="259.2000274658203" text="Tên khoản thu" />
+            <TableColumn fx:id="colSoTien" prefWidth="373.60003662109375" text="Số tiền" />
+            <TableColumn fx:id="colLoaiKhoanThu" prefWidth="240.80010986328125" text="Loại khoản thu" />
+            <TableColumn fx:id="colHanNop" prefWidth="280.0" text="Hạn nộp" />
         </columns>
       </TableView>
       <TextField fx:id="tfSearch" layoutX="10.0" layoutY="8.0" prefHeight="40.0" prefWidth="420.0" AnchorPane.bottomAnchor="740.0" AnchorPane.leftAnchor="390.0" AnchorPane.rightAnchor="510.0" AnchorPane.topAnchor="10.0" />

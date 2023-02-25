@@ -1,6 +1,8 @@
 package controller.khoanthu;
 
+import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.regex.Pattern;
 
 import javafx.event.ActionEvent;
@@ -10,6 +12,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import models.KhoanThuModel;
 import services.KhoanThuService;
@@ -23,6 +26,8 @@ public class UpdateKhoanThu {
 	private TextField tfLoaiKhoanThu;
 	@FXML
 	private TextField tfSoTien;
+        @FXML
+        private DatePicker dateHanNop;
 
 	private KhoanThuModel khoanThuModel;
 
@@ -35,8 +40,12 @@ public class UpdateKhoanThu {
 			tfLoaiKhoanThu.setText("Bắt buộc");
 		} else {
 			tfLoaiKhoanThu.setText("Tự nguyện");
+                        tfSoTien.setEditable(false);
 		}
 		tfSoTien.setText(Double.toString(khoanThuModel.getSoTien()));
+                
+                LocalDate date = khoanThuModel.getHanNop().toLocalDate();
+                dateHanNop.setValue(date);
 	}
 
 	public void updateKhoanThu(ActionEvent event) throws ClassNotFoundException, SQLException {
@@ -65,9 +74,11 @@ public class UpdateKhoanThu {
 		int maKhoanThuInt = khoanThuModel.getMaKhoanThu();
 		String tenKhoanThuString = tfTenKhoanThu.getText();
 		int loaiKhoanThuInt = khoanThuModel.getLoaiKhoanThu();
+                
 		double soTienDouble = Double.parseDouble(tfSoTien.getText());
+                Date datehannop = Date.valueOf(this.dateHanNop.getValue());
 		
-		new KhoanThuService().update(maKhoanThuInt, tenKhoanThuString, soTienDouble, loaiKhoanThuInt);
+		new KhoanThuService().update(maKhoanThuInt, tenKhoanThuString, soTienDouble, loaiKhoanThuInt,datehannop);
 		Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         stage.close();
 	}

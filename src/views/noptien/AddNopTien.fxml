@@ -22,5 +22,6 @@
       <Label layoutX="67.0" layoutY="323.0" text="Ngày nộp" />
       <DatePicker fx:id="datepicker" editable="false" layoutX="277.0" layoutY="317.0" prefHeight="39.0" prefWidth="395.0" />
       <Button layoutX="361.0" layoutY="442.0" mnemonicParsing="false" onAction="#addNopTien" text="Thêm" textFill="#1996f5" />
+      <TextField fx:id="tfSoTien" layoutX="277.0" layoutY="163.0" prefHeight="39.0" prefWidth="395.0" />
    </children>
 </AnchorPane>

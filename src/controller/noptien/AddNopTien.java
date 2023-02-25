@@ -28,6 +28,8 @@ public class AddNopTien {
     @FXML
     private TextField tfTenKhoanThu;
     @FXML
+    private TextField tfSoTien;
+    @FXML
     private TextField tfTenNguoiNop;
     @FXML
     private DatePicker datepicker;
@@ -48,7 +50,13 @@ public class AddNopTien {
         if (khoanThuModel == null) {
             return;
         }
-
+        if (khoanThuModel.getLoaiKhoanThu()==1){
+            tfSoTien.setEditable(false);
+        }
+        else {
+            tfSoTien.setEditable(true);
+        }
+        tfSoTien.setText(Double.toString(khoanThuModel.getSoTien()));
         tfTenKhoanThu.setText(khoanThuModel.getTenKhoanThu());
     }
 
@@ -67,7 +75,7 @@ public class AddNopTien {
         if (nhanKhauModel == null) {
             return;
         }
-
+        
         tfTenNguoiNop.setText(nhanKhauModel.getTen());
     }
 
@@ -87,8 +95,9 @@ public class AddNopTien {
                     return;
                 }
             }
+            double soTienDouble = Double.parseDouble(tfSoTien.getText());
 
-            new NopTienService().add(new NopTienModel(nhanKhauModel.getId(), khoanThuModel.getMaKhoanThu(), java.sql.Date.valueOf(datepicker.getValue())));
+            new NopTienService().add(new NopTienModel(nhanKhauModel.getId(), khoanThuModel.getMaKhoanThu(), java.sql.Date.valueOf(datepicker.getValue()), soTienDouble));
         }
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setTitle("Thêm nộp tiền");
