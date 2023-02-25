@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th2 23, 2023 lúc 10:21 AM
+-- Thời gian đã tạo: Th2 25, 2023 lúc 07:27 AM
 -- Phiên bản máy phục vụ: 10.4.27-MariaDB
 -- Phiên bản PHP: 8.2.0
 
@@ -39,7 +39,12 @@ CREATE TABLE `chu_ho` (
 INSERT INTO `chu_ho` (`MaHo`, `IDChuHo`) VALUES
 (1, 1),
 (2, 3),
-(3, 4);
+(3, 6),
+(4, 4),
+(5, 8),
+(6, 9),
+(7, 10),
+(8, 7);
 
 -- --------------------------------------------------------
 
@@ -51,7 +56,7 @@ CREATE TABLE `ho_khau` (
   `MaHo` int(11) NOT NULL,
   `SoThanhVien` int(11) NOT NULL,
   `DiaChi` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `maKhuVuc` varchar(100) DEFAULT NULL
+  `maKhuVuc` varchar(100) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
@@ -59,9 +64,14 @@ CREATE TABLE `ho_khau` (
 --
 
 INSERT INTO `ho_khau` (`MaHo`, `SoThanhVien`, `DiaChi`, `maKhuVuc`) VALUES
-(1, 2, 'Ha Noi', NULL),
-(2, 2, 'VN', 'VN'),
-(3, 2, 'fasd', '654');
+(1, 2, 'Ha Noi', ''),
+(2, 1, 'VN', 'VN'),
+(3, 1, 'alo', 'null'),
+(4, 2, 'VN', '123456'),
+(5, 1, 'skfhsdjk', '123456'),
+(6, 1, 'VN', NULL),
+(7, 1, 'VN', NULL),
+(8, 1, 'VN', NULL);
 
 -- --------------------------------------------------------
 
@@ -84,8 +94,9 @@ CREATE TABLE `khai_tu` (
 --
 
 INSERT INTO `khai_tu` (`id`, `soGiayKhaiTu`, `idNguoiKhai`, `idNguoiChet`, `ngayKhai`, `ngayChet`, `lyDoChet`) VALUES
-(1, 1, 1, 2, '2023-02-08', '2023-02-14', 'bệnh'),
-(2, 2, 1, 4, '2023-02-23', '2023-02-01', '');
+(4, 321312465, 1, 2, '2023-02-25', '2023-02-25', 'bệnh nặng'),
+(5, 12345646, 3, 9, '2023-02-25', '2023-02-25', 'bệnh'),
+(6, 324564, 3, 10, '2023-02-25', '2023-02-16', 'bệnh nặng');
 
 -- --------------------------------------------------------
 
@@ -96,19 +107,23 @@ INSERT INTO `khai_tu` (`id`, `soGiayKhaiTu`, `idNguoiKhai`, `idNguoiChet`, `ngay
 CREATE TABLE `khoan_thu` (
   `MaKhoanThu` int(11) NOT NULL,
   `TenKhoanThu` varchar(100) NOT NULL,
-  `SoTien` double NOT NULL,
-  `LoaiKhoanThu` int(11) NOT NULL
+  `SoTien` double DEFAULT NULL,
+  `LoaiKhoanThu` int(11) NOT NULL,
+  `hanNop` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `khoan_thu`
 --
 
-INSERT INTO `khoan_thu` (`MaKhoanThu`, `TenKhoanThu`, `SoTien`, `LoaiKhoanThu`) VALUES
-(1, 'Ủng hộ đội bóng', 10000, 0),
-(2, 'Nước', 1000, 1),
-(3, 'Tiền Đổ rác', 20000, 1),
-(4, 'Tiền điện', 200000, 1);
+INSERT INTO `khoan_thu` (`MaKhoanThu`, `TenKhoanThu`, `SoTien`, `LoaiKhoanThu`, `hanNop`) VALUES
+(1, 'Vệ sinh', 6000, 1, '2023-02-28'),
+(2, 'Nước', 50000, 1, '2023-02-28'),
+(3, 'Điện', 100000, 1, '2023-02-28'),
+(4, 'Ủng hộ ngày thương binh-liệt sỹ 27/07', 0, 0, '2023-03-11'),
+(5, 'Ủng hộ ngày tết thiếu nhi', 0, 0, '2023-02-28'),
+(6, 'Ủng hộ vì người nghèo', 0, 0, '2023-02-28'),
+(7, 'Ủng hộ MU vô địch', 0, 0, '2023-02-28');
 
 -- --------------------------------------------------------
 
@@ -139,12 +154,16 @@ CREATE TABLE `nhan_khau` (
 --
 
 INSERT INTO `nhan_khau` (`ID`, `CMND`, `Ten`, `tuoi`, `SDT`, `gioiTinh`, `noiSinh`, `nguyenQuan`, `danToc`, `quocTich`, `soHoChieu`, `noiThuongTru`, `diaChiHienTai`, `tonGiao`, `ghiChu`) VALUES
-(1, '123456', 'Nguyễn Văn A', '1983-02-01', NULL, 'Nam', 'Ha Noi', 'Ha Noi', 'Kinh', 'VN', '2312346', 'Ha Noi', 'HN', 'Không', 'Chủ hộ'),
-(2, '213456', 'Nguyễn Văn B', '2002-08-09', '01241', 'Nam', 'HN', 'adfsdf', 'Kinh', 'VN', '12356', 'sdfds', 'ádfsfds', 'Không', ''),
-(3, '1', 'Phạm Thị A', '1990-09-09', '2', 'Nữ', 'afds', 'fadfa', 'afds', 'VN', '123546', 'afds', 'sdfgdf', 'dfsfds', ''),
-(4, '654', 'Lê Văn C', '1997-08-05', '456', 'Nam', 'adsf', 'ádf', 'adf', 'adsfds', '654', 'ádf', 'ádf', 'ádf', 'Đã mất'),
-(5, '987546', 'Lê Văn D', '2008-07-08', '213654', 'Nam', 'gds', 'sg', 'Kinh', 'ádf', '564', 'gf', 'sg', 'sg', ''),
-(6, '213645', 'Phạm Thị B', '2000-01-01', '213546', 'Nữ', 'hgd', 'gd', 'hgd', 'gfv', '321654', 'ghd', 'hd', 'dhg', '');
+(1, '1', 'Nguyễn Văn A', '1983-02-01', '', 'Nam', 'Ha Noi', 'Ha Noi', 'Kinh', 'VN', '2312346', 'Ha Noi', 'HN', 'Không', ''),
+(2, '2', 'Nguyễn Văn B', '2023-02-01', '123456', '2123546', 'sjdfksjdkl', 'sjfdskj', 'kjljdsfds', 'sfsdhfkj', '132564', 'dsjlksj', 'sfdkjsfjs', 'sjfsdkfj', ''),
+(3, '2', 'Phạm Thị A', '1990-09-09', '2', 'Nữ', 'afds', 'fadfa', 'afds', 'VN', '1235467', 'afds', 'sdfgdf', 'dfsfds', ''),
+(4, '4', 'Phạm Văn B', '2010-02-11', '123456', 'Nam', 'mnjg', 'yiouio', 'Kinh', 'VN', '123456', 'zcbvb', 'tyui', 'ưetyu', ''),
+(5, '5', 'Phạm Thị C', '2012-02-16', '123456', 'Nữ', 'ádfs', 'fghfher', 'fsdsfasf', '546789', '123456', 'ádfsdf', 'ẻgdfg', 'ẻgregre', ''),
+(6, '6', 'Trần Văn D', '1234-05-06', '3254', 'fghf', 'fghgfh', 'fghgfh', 'fghfh', 'fhfghg', '231134', 'fghfh', 'fghfghfg', 'fghfg', 'fghhgf'),
+(7, '7', 'Phạm văn C', '2023-02-01', '13216546', 'Nam', 'skfjkls', 'jsdfklsjf', 'sàdshkjdfs', 'fdahkj', '1234564', 'sjfsdklfjsl', 'ádfjklsfjs', 'sdkfjlskl', ''),
+(8, '8', 'jlfgdf', '2023-02-02', '123156', 'Nam', 'sfsdf', 'ádfs', 'jasdfkl', 'skfhskj', '123456', 'ádfdsasdfs', 'sadfsdf', 'ádfsd', ''),
+(9, '9', 'kjhkj', '2023-02-15', '123456', 'nam', 'kjhjkhk', 'jkhkjhkl', 'jhkhjk', '4564656', '124665', '65465', 'jbjkhjk', 'jkhjk', ''),
+(10, '12312564', 'kjlhkjh', '2023-02-16', '2165465', 'nam', 'kjhkjk', 'khjkhk', 'hjgjhg', '321246', '1456456', 'kjhkj', 'nbmbjh', 'hiuyuiyi', 'Đã mất');
 
 -- --------------------------------------------------------
 
@@ -155,17 +174,21 @@ INSERT INTO `nhan_khau` (`ID`, `CMND`, `Ten`, `tuoi`, `SDT`, `gioiTinh`, `noiSin
 CREATE TABLE `nop_tien` (
   `IDNopTien` int(11) NOT NULL,
   `MaKhoanThu` int(11) NOT NULL,
-  `NgayThu` date DEFAULT NULL
+  `NgayThu` date DEFAULT NULL,
+  `soTien` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `nop_tien`
 --
 
-INSERT INTO `nop_tien` (`IDNopTien`, `MaKhoanThu`, `NgayThu`) VALUES
-(1, 2, '2023-02-21'),
-(2, 2, '2023-02-21'),
-(4, 3, '2023-02-22');
+INSERT INTO `nop_tien` (`IDNopTien`, `MaKhoanThu`, `NgayThu`, `soTien`) VALUES
+(1, 1, '2023-02-25', 6000),
+(1, 2, '2023-02-08', 50000),
+(4, 1, '2023-02-23', 6000),
+(5, 7, '2023-02-25', 100000),
+(6, 6, '2023-02-25', 100000),
+(7, 3, '2023-02-25', 100000);
 
 -- --------------------------------------------------------
 
@@ -184,12 +207,8 @@ CREATE TABLE `quan_he` (
 --
 
 INSERT INTO `quan_he` (`MaHo`, `IDThanhVien`, `QuanHe`) VALUES
-(1, 1, ''),
-(1, 2, 'Con'),
-(2, 3, 'Là chủ hộ'),
-(2, 6, 'Con'),
-(3, 4, 'Là chủ hộ'),
-(3, 5, 'con');
+(1, 2, 'con'),
+(4, 5, 'em gái');
 
 -- --------------------------------------------------------
 
@@ -212,7 +231,8 @@ CREATE TABLE `tam_tru` (
 --
 
 INSERT INTO `tam_tru` (`id`, `idNhanKhau`, `maGiayTamTru`, `noiTamTru`, `tuNgay`, `denNgay`, `lyDo`) VALUES
-(2, 3, '#abc', 'HN', '2023-03-01', '2023-03-31', 'jhkdsu');
+(2, 3, '#abc', 'HN', '2023-03-01', '2023-03-31', 'jhkdsu'),
+(3, 1, '465465', 'hn', '2023-02-09', '2023-02-10', 'saklfsd');
 
 -- --------------------------------------------------------
 
@@ -234,10 +254,8 @@ CREATE TABLE `tam_vang` (
 --
 
 INSERT INTO `tam_vang` (`id_tam_vang`, `idNhanKhau`, `maGiayTamVang`, `tuNgay`, `denNgay`, `lydo`) VALUES
-(1, 3, 'abc', '2023-02-01', '2023-02-28', ''),
-(2, 3, '', '2023-02-22', '2023-02-28', 'di vang'),
-(3, 3, '', '2023-02-01', '2023-02-28', 'di vang'),
-(4, 6, 'bcd', '2023-03-01', '2023-03-31', '');
+(6, 3, '546456', '2023-02-07', '2023-02-22', 'di'),
+(7, 1, '123456', '2023-02-01', '2023-02-03', 'đi chơi');
 
 -- --------------------------------------------------------
 
@@ -338,19 +356,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `ho_khau`
 --
 ALTER TABLE `ho_khau`
-  MODIFY `MaHo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MaHo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `khai_tu`
 --
 ALTER TABLE `khai_tu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `khoan_thu`
 --
 ALTER TABLE `khoan_thu`
-  MODIFY `MaKhoanThu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MaKhoanThu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `nhan_khau`
@@ -362,13 +380,13 @@ ALTER TABLE `nhan_khau`
 -- AUTO_INCREMENT cho bảng `tam_tru`
 --
 ALTER TABLE `tam_tru`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `tam_vang`
 --
 ALTER TABLE `tam_vang`
-  MODIFY `id_tam_vang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tam_vang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
